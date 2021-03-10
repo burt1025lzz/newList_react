@@ -1,7 +1,9 @@
 import React, {Component, Fragment} from 'react'
 import TodoItem from "./TodoItem";
 import AddNum from "./AddNum";
+import axios from "axios";
 import './style.css'
+import {Button} from "antd";
 
 class App extends Component {
   constructor(props) {
@@ -103,9 +105,18 @@ class App extends Component {
         <AddNum num={this.state.num} ref={(addNum) => {
           this.addNum = addNum
         }}/>
+        <Button type="primary">Primary Button</Button>
       </Fragment>
     )
   }
+
+  componentDidMount() {
+    const promise = axios.get('http://www.dell-lee.com/react/api/demo.json')
+    promise.then((res) => {
+      console.log(res.data)
+    })
+  }
+
 }
 
 export default App

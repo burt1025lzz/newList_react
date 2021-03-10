@@ -1,4 +1,5 @@
 import React, {Component, Fragment} from 'react'
+import TodoItem from "./TodoItem";
 import './style.css'
 
 class App extends Component {
@@ -7,6 +8,7 @@ class App extends Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleKeyUp = this.handleKeyUp.bind(this);
+    this.handleItemClick = this.handleItemClick.bind(this);
 
     this.state = {
       inputValue: '',
@@ -30,7 +32,7 @@ class App extends Component {
     }
   }
 
-  handleClick(index) {
+  handleItemClick(index) {
     const list = [...this.state.list]
     list.splice(index, 1)
     this.setState({list})
@@ -39,12 +41,13 @@ class App extends Component {
   getItemList() {
     return this.state.list.map((value, index) => {
       return (
-        <li
-          onClick={this.handleClick.bind(this, index)}
+        // 父组件通过属性的形式向子组件传值
+        <TodoItem
+          content={value}
+          index={index}
           key={index}
-          dangerouslySetInnerHTML={{__html: value}}
-        >
-        </li>
+          deleteFun={this.handleItemClick}
+        />
       )
     })
   }

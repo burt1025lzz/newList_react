@@ -9,6 +9,9 @@ class App extends Component {
   constructor(props) {
     super(props);
 
+
+
+
     this.handleChange = this.handleChange.bind(this);
     this.handleKeyUp = this.handleKeyUp.bind(this);
     this.handleItemClick = this.handleItemClick.bind(this);

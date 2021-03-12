@@ -1,6 +1,8 @@
-import React, {Component, Fragment} from 'react'
-// import axios from "axios";
-import './style.css'
+import React, {Component} from 'react'
+import {Layout} from 'antd';
+import AppHeader from "./components/Header";
+
+const {Header, Footer, Content} = Layout;
 
 class App extends Component {
   constructor(props) {
@@ -10,8 +12,13 @@ class App extends Component {
 
   render() {
     return (
-      <Fragment>
-      </Fragment>
+      <Layout style={{minWidth: 1350}}>
+        <Header className="header">
+          <AppHeader/>
+        </Header>
+        <Content className="content">Content</Content>
+        <Footer className="footer">Footer</Footer>
+      </Layout>
     )
   }
 }

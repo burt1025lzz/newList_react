@@ -1,4 +1,5 @@
 import React, {Component} from "react"
+import {Link} from 'react-router-dom'
 import {List} from 'antd';
 import axios from "axios";
 
@@ -13,7 +14,7 @@ class NewList extends Component {
 
   handleGetData(id) {
     let url = 'http://www.dell-lee.com/react/api/list.json'
-    if (id) url += '?id=' + id
+    if (id) url += `?id=${id}`
     axios.get(url).then(res => {
       this.setState({
         data: res.data.data
@@ -27,7 +28,13 @@ class NewList extends Component {
         bordered
         style={{background: '#fff'}}
         dataSource={this.state.data}
-        renderItem={item => <List.Item>{item.title}</List.Item>}
+        renderItem={item =>
+          <List.Item>
+            <Link to={`/detail/${item.id}`}>
+              {item.title}
+            </Link>
+          </List.Item>
+        }
       />
     )
   }

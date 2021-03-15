@@ -23,7 +23,7 @@ class App extends Component {
           </Header>
           <Content className="content">
             <Switch>
-              <Route path="/detail" component={NewDetail}/>
+              <Route path="/detail/:id" component={NewDetail}/>
               <Route path="/:id?" component={NewList}/>
             </Switch>
           </Content>

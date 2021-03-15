@@ -1,4 +1,5 @@
 import React, {Component, Fragment} from "react"
+import {Link} from 'react-router-dom'
 import axios from "axios";
 import logo from './logo.png'
 import {Menu} from 'antd';
@@ -28,14 +29,16 @@ class AppHeader extends Component {
     return this.state.list.map(item => {
       return (
         <Menu.Item key={item.id} icon={this.state.icon[item.id - 1]}>
-          {item.title}
+          <Link to={`/${item.id}`}>
+            {item.title}
+          </Link>
         </Menu.Item>
       )
     })
   }
 
   componentDidMount() {
-    axios.get("http://localhost:3000/data").then(res => {
+    axios.get("http://localhost:3000/header").then(res => {
       this.setState({
         list: res.data.data
       })

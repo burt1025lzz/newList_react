@@ -3,7 +3,7 @@ import {Layout} from 'antd';
 import {BrowserRouter, Route, Switch} from "react-router-dom";
 import AppHeader from "./components/Header";
 import NewList from "./containers/list";
-import NewDetail from "./containers/detail/detail";
+import NewDetail from "./containers/detail";
 
 const {Header, Footer, Content} = Layout;
 
@@ -15,20 +15,22 @@ class App extends Component {
 
   render() {
     return (
-      <Layout style={{minWidth: 1350}}>
-        <Header className="header">
-          <AppHeader/>
-        </Header>
-        <Content className="content">
-          <BrowserRouter>
+      <BrowserRouter>
+
+        <Layout style={{minWidth: 1350, height: '100%'}}>
+          <Header className="header">
+            <AppHeader/>
+          </Header>
+          <Content className="content">
             <Switch>
               <Route path="/detail" component={NewDetail}/>
-              <Route path="/" component={NewList}/>
+              <Route path="/:id?" component={NewList}/>
             </Switch>
-          </BrowserRouter>
-        </Content>
-        <Footer className="footer">Footer</Footer>
-      </Layout>
+          </Content>
+          <Footer className="footer">@copy right burt 2020</Footer>
+        </Layout>
+      </BrowserRouter>
+
     )
   }
 }

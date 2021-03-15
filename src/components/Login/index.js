@@ -1,4 +1,5 @@
 import React, {Component} from "react"
+import {Link, withRouter} from 'react-router-dom'
 import {Modal, Button, Input, message} from "antd";
 import './style.css'
 import axios from "axios";
@@ -75,6 +76,7 @@ class Login extends Component {
         message.success('退出登录成功!').then(() => {
         })
       }
+      this.props.history.push('/')
     })
   }
 
@@ -86,6 +88,9 @@ class Login extends Component {
           login ? <Button type="primary" onClick={this.logOut}>退出</Button> :
             <Button type="primary" onClick={this.showModal}>登录</Button>
         }
+        <Link to='/vip'>
+          <Button type="primary" style={{marginLeft: 10}}>Vip</Button>
+        </Link>
         <Modal
           title="登录"
           visible={this.state.modal}
@@ -119,4 +124,4 @@ class Login extends Component {
   }
 }
 
-export default Login
+export default withRouter(Login)

@@ -26,6 +26,7 @@ class App extends Component {
           <Content className="content">
             <Login/>
             <Switch>
+              <Route path="/vip" component={Vip}/>
               <Route path="/detail/:id" component={NewDetail}/>
               <Route path="/:id?" component={NewList}/>
             </Switch>

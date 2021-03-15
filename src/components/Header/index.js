@@ -11,7 +11,6 @@ import {
   GooglePlusOutlined,
   WechatOutlined,
   DribbbleOutlined,
-  MailOutlined
 } from '@ant-design/icons';
 
 
@@ -21,7 +20,7 @@ class AppHeader extends Component {
     this.state = {
       list: [],
       icon: [<UsergroupAddOutlined/>, <IdcardOutlined/>, <DingdingOutlined/>, <GooglePlusOutlined/>, <WechatOutlined/>,
-        <DribbbleOutlined/>, <MailOutlined/>]
+        <DribbbleOutlined/>]
     }
   }
 
@@ -38,7 +37,7 @@ class AppHeader extends Component {
   }
 
   componentDidMount() {
-    axios.get("http://localhost:3000/header").then(res => {
+    axios.get("http://www.dell-lee.com/react/api/header.json").then(res => {
       this.setState({
         list: res.data.data
       })

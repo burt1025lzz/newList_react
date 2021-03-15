@@ -2,8 +2,10 @@ import React, {Component} from 'react'
 import {Layout} from 'antd';
 import {BrowserRouter, Route, Switch} from "react-router-dom";
 import AppHeader from "./components/Header";
+import Login from "./components/Login";
 import NewList from "./containers/list";
 import NewDetail from "./containers/detail";
+import Vip from "./containers/Vip";
 
 const {Header, Footer, Content} = Layout;
 
@@ -22,6 +24,7 @@ class App extends Component {
             <AppHeader/>
           </Header>
           <Content className="content">
+            <Login/>
             <Switch>
               <Route path="/detail/:id" component={NewDetail}/>
               <Route path="/:id?" component={NewList}/>

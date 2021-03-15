@@ -1,3 +1,7 @@
+body {
+    background-color: #f0f2f5;
+}
+
 .header {
     height: 100% !important;
     background-color: #fff;
@@ -6,6 +10,7 @@
 
 .content {
     min-height: 600px;
+    margin: 10px;
 }
 
 .footer {

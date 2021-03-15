@@ -1,6 +1,9 @@
 import React, {Component} from 'react'
 import {Layout} from 'antd';
+import {BrowserRouter, Route, Switch} from "react-router-dom";
 import AppHeader from "./components/Header";
+import NewList from "./containers/list";
+import NewDetail from "./containers/detail/detail";
 
 const {Header, Footer, Content} = Layout;
 
@@ -16,7 +19,14 @@ class App extends Component {
         <Header className="header">
           <AppHeader/>
         </Header>
-        <Content className="content">Content</Content>
+        <Content className="content">
+          <BrowserRouter>
+            <Switch>
+              <Route path="/detail" component={NewDetail}/>
+              <Route path="/" component={NewList}/>
+            </Switch>
+          </BrowserRouter>
+        </Content>
         <Footer className="footer">Footer</Footer>
       </Layout>
     )

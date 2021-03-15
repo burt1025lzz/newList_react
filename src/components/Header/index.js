@@ -35,7 +35,7 @@ class AppHeader extends Component {
   }
 
   componentDidMount() {
-    axios.get("http://localhost:3001/data").then(res => {
+    axios.get("http://localhost:3000/data").then(res => {
       this.setState({
         list: res.data.data
       })
